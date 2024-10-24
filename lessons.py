@@ -393,3 +393,9 @@ except ValueError as ve_exc:
 raise ValueError('Ivalid Value')
 
 '''
+
+
+## swap variables
+a = 'A'
+b = 'B'
+a, b = (b, a)
