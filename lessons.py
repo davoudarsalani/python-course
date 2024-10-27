@@ -399,3 +399,43 @@ raise ValueError('Ivalid Value')
 a = 'A'
 b = 'B'
 a, b = (b, a)
+
+
+
+## modules
+
+## built-in functions (no need to be imported)
+## print, str, ...
+
+## built-in modules (no need to be installed by pip)
+## os, Path, re, time, ...
+
+
+import os
+
+home = os.environ['HOME']
+# home = os.getenv('HOME')
+
+directory = f'{home}/main/eterna'
+
+## get list of files/dirs
+items = os.listdir(directory)
+
+## isfile/isdir
+for item in items:
+    full_path = f'{directory}/{item}'
+    if os.path.isfile(full_path):
+        print(f'{item} is file')
+    elif os.path.isdir(full_path):
+        print(f'{item} is directory')
+
+## os info
+os_info = os.uname()  ## posix.uname_result(sysname='Linux', nodename='acer', release='6.6.58-1-lts', version='#1 SMP PREEMPT_DYNAMIC Wed, 23 Oct 2024 17:28:15 +0000', machine='x86_64')
+## os_info = os.name  ## on Windows
+
+## pwd
+pwd = os.getcwd()
+print(pwd)
+
+## cd
+os.chdir(f'{home}/main/ariel')
