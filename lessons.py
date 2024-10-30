@@ -411,6 +411,7 @@ a, b = (b, a)
 ## os, Path, re, time, ...
 
 
+'''
 import os
 
 home = os.environ['HOME']
@@ -439,3 +440,34 @@ print(pwd)
 
 ## cd
 os.chdir(f'{home}/main/ariel')
+'''
+
+
+
+'''
+## import methods
+# 1
+import os
+
+# 2
+## from os import *  <- DONT (not recommended)
+from os import (
+    getcwd as my_pwd,
+    # listdir as get_files,
+)
+'''
+
+
+from datetime import (
+    datetime as dt,
+    date,
+    time,
+)
+
+now = dt.now()  ## 2024-10-30 19:24:13.846711
+weekday = now.strftime('%A')  ## Wednesday
+weekday = now.strftime('%a')  ## Wed
+print(now)
+
+
+print(date.today())
