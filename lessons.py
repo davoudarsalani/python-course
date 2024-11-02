@@ -455,7 +455,6 @@ from os import (
     getcwd as my_pwd,
     # listdir as get_files,
 )
-'''
 
 
 from datetime import (
@@ -467,7 +466,30 @@ from datetime import (
 now = dt.now()  ## 2024-10-30 19:24:13.846711
 weekday = now.strftime('%A')  ## Wednesday
 weekday = now.strftime('%a')  ## Wed
-print(now)
+ymd = now.strftime('%Y-%m-%d')  ## 2024-10-30
+print(ymd)
+
+'''
 
 
-print(date.today())
+
+
+## open files
+from os import getenv
+
+file_path = f'{getenv("HOME")}/main/python-course/ips'
+
+# modes = 'w', 'r', 'a', 'rb', 'wb'
+# 'r+' read and write
+# 'w+' write and read
+
+with open(file_path, 'r') as opened:
+    ## remove \n using list comprehension
+    ## and discard empty lines
+    lines = [
+        line.strip()
+        for line in opened.readlines()
+        if line.strip()
+    ]
+
+print(lines)
