@@ -232,9 +232,9 @@ names.add('ghghg')
 
 ## 'small' is a parameter
 ##
-def add(name, age):
-    print(f'name: {name}')
-    print(f'age: {age}')
+# def add(name, age):
+#     print(f'name: {name}')
+#     print(f'age: {age}')
 
 
 # ## positional arguments
@@ -244,32 +244,30 @@ def add(name, age):
 # add(age=10, name='Ben')
 
 # optional parameter
-def price_device(keyboard, mainboard=100):
-    return f'{keyboard} is cheaper than {mainboard}'
+# def price_device(keyboard, mainboard=100):
+#     return f'{keyboard} is cheaper than {mainboard}'
 
 
-def calc_age(*args):
-    '''
-    args is a tuple: (20, 87, 67)
-    '''
-    return min(args)
+# def calc_age(*args):
+#     '''
+#     args is a tuple: (20, 87, 67)
+#     '''
+#     return min(args)
 
 
 # print(calc_age(10, 20, 30))
 
 
-def create_student(**kwargs):
-    '''
-    kwargs is a dict: {'name': 'Ali', 'Last Name': 'Alavi'}
-    '''
-    name = kwargs.get('name')
-    last_name = kwargs.get('last_name')
-    return f'{name} {last_name}'
+# def create_student(**kwargs):
+#     '''
+#     kwargs is a dict: {'name': 'Ali', 'Last Name': 'Alavi'}
+#     '''
+#     name = kwargs.get('name')
+#     last_name = kwargs.get('last_name')
+#     return f'{name} {last_name}'
 
 
-
-
-result = create_student(name='Ali', last_name='Alavi')
+# result = create_student(name='Ali', last_name='Alavi')
 # print(result)
 
 
@@ -287,6 +285,7 @@ book = create_book(1900)
 print(author)
 '''
 
+'''
 ## filter/lambda/map/zip
 
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -311,20 +310,22 @@ evens = filter(
     ## list
     numbers,
 )
+'''
 
 
-
+'''
 ## zip
 names = ['Ben', 'Beniamin', 'Mohammad', 'Reza', 'Ali']
 last_names = ['Kamali', 'Hayati', 'Alavi']
 ages = [40, 87, 19]
 
 full_names = list(zip(names, last_names, ages))
+'''
 
 
 
 
-
+'''
 ## unpacking list/set/tuple
 g1 = [1, 2, 3]
 g2 = [4, 5, 6]
@@ -347,6 +348,7 @@ combined = {
     **person1,
     **person2,
 }
+'''
 
 
 ## error handling ------------------------------------------
@@ -396,9 +398,9 @@ raise ValueError('Ivalid Value')
 
 
 ## swap variables
-a = 'A'
-b = 'B'
-a, b = (b, a)
+# a = 'A'
+# b = 'B'
+# a, b = (b, a)
 
 
 
@@ -475,21 +477,3 @@ print(ymd)
 
 
 ## open files
-from os import getenv
-
-file_path = f'{getenv("HOME")}/main/python-course/ips'
-
-# modes = 'w', 'r', 'a', 'rb', 'wb'
-# 'r+' read and write
-# 'w+' write and read
-
-with open(file_path, 'r') as opened:
-    ## remove \n using list comprehension
-    ## and discard empty lines
-    lines = [
-        line.strip()
-        for line in opened.readlines()
-        if line.strip()
-    ]
-
-print(lines)
