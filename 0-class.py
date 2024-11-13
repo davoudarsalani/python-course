@@ -9,9 +9,15 @@
 
 
 class Robot:
-    ## function inside a class is a 'method'
+    def __init__(self, name, country):
+        ## attribute
+        self.price = 100
+        self.name = name
+        self.country = country
+        print(f'instance {id(self)} saved')
+
     def walk(self):
-        print(f'robot {id(self)} is walking')
+        print(f'{self.name} is walking')
 
     def get_type(self):
         return type(self)
@@ -20,10 +26,11 @@ class Robot:
 ## robot is an object
 ## robot is an instance of Robot class
 ## this process is called: instantiation
-robot = Robot()
-
+robot = Robot(name='Xman', country='Canada')
 
 ## call a method
-robot.walk()
+# robot.walk()
 
-print(robot.get_type())
+# print(isinstance(robot, Robot))
+
+print(robot.country)
