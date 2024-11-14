@@ -9,8 +9,12 @@
 
 
 class Robot:
+    ## class attributes
+    ## available for all instances
+    color = 'White'
+
     def __init__(self, name, country):
-        ## attribute
+        ## instance attributes
         self.price = 100
         self.name = name
         self.country = country
@@ -34,3 +38,6 @@ robot = Robot(name='Xman', country='Canada')
 # print(isinstance(robot, Robot))
 
 print(robot.country)
+
+## add instance attribute
+robot.weight = '20KG'
