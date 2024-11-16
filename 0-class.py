@@ -13,6 +13,17 @@ class Robot:
     ## available for all instances
     color = 'White'
 
+    @classmethod  ## <- decorator
+    def get_name(cls):
+        return f'name is {cls.__name__} with id {id(cls)}'
+
+    #################################
+
+    ## magic method
+    def __str__(self):
+        return f'Name: {self.name} || Country: {self.country} || Price: {self.price}'
+
+    ## constructor
     def __init__(self, name, country):
         ## instance attributes
         self.price = 100
@@ -20,11 +31,9 @@ class Robot:
         self.country = country
         print(f'instance {id(self)} saved')
 
+    ## instance method
     def walk(self):
         print(f'{self.name} is walking')
-
-    def get_type(self):
-        return type(self)
 
 
 ## robot is an object
@@ -32,12 +41,17 @@ class Robot:
 ## this process is called: instantiation
 robot = Robot(name='Xman', country='Canada')
 
-## call a method
+## call instance method
 # robot.walk()
 
 # print(isinstance(robot, Robot))
 
-print(robot.country)
-
 ## add instance attribute
 robot.weight = '20KG'
+
+## call class method
+name_of_class = Robot.get_name()
+
+
+
+print(robot)
