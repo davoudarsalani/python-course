@@ -29,7 +29,14 @@ class Robot:
         self.price = 100
         self.name = name
         self.country = country
+        self.bookmarks = {}
         print(f'instance {id(self)} saved')
+
+    def __getitem__(self, key):
+        ## robot.get('python')
+        ## instead of 
+        ## robot.bookmarks.get('python')
+        return self.bookmarks.get(key, None)
 
     ## instance method
     def walk(self):
@@ -54,4 +61,7 @@ name_of_class = Robot.get_name()
 
 
 
-print(robot)
+robot.bookmarks['python'] = 'My Favorite'
+
+
+value = robot.bookmarks.get('python')
