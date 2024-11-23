@@ -30,6 +30,7 @@ class Robot:
         self.name = name
         self.country = country
         self.bookmarks = {}
+        self.__private_attribute = {}
         print(f'instance {id(self)} saved')
 
     def __getitem__(self, key):
@@ -37,6 +38,12 @@ class Robot:
         ## instead of 
         ## robot.bookmarks.get('python')
         return self.bookmarks.get(key, None)
+
+    def __setitem__(self, key, value):
+        self.bookmarks[key] = value
+
+    def __iter__(self):
+        return iter(self.bookmarks.items())
 
     ## instance method
     def walk(self):
@@ -54,14 +61,18 @@ robot = Robot(name='Xman', country='Canada')
 # print(isinstance(robot, Robot))
 
 ## add instance attribute
-robot.weight = '20KG'
+# robot.weight = '20KG'
 
-## call class method
+# ## call class method
 name_of_class = Robot.get_name()
 
 
+## get (using __getitem__)
+value = robot['python']  ## .get() throws error
 
-robot.bookmarks['python'] = 'My Favorite'
+## set (using __setitem__)
+robot['Name'] = 'Ali'
+robot['Last Name'] = 'Alavi'
 
-
-value = robot.bookmarks.get('python')
+for i in robot:
+    print(i)
