@@ -4,12 +4,12 @@
 from time import perf_counter
 
 
-def timer(func):
-    def decor():
-        print('decor started...')
+def timer(func):  ## fund is actually create_list
+    def decor(num):
+
         start = perf_counter()  ## 53635345436
         print('running...')
-        result = func()
+        result = func(num)  ## <<<<<<<<<<<<<<
         end = perf_counter()
         print('decor done')
 
@@ -18,13 +18,11 @@ def timer(func):
         return result
 
     return decor
-    
+
 
 @timer  ## <- decorator
-def create_list():  ## <- decorated function
-    return [i for i in range(50_000_000)]
+def create_list(num):  ## <- decorated function
+    return [i for i in range(num)]
 
 
-result = create_list()
-
-print('end of script')
+result = create_list(num=100_000)
